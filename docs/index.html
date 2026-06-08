@@ -25,25 +25,43 @@
     .section { margin-top:18px; }
     .note { color:var(--muted); font-size:13px; line-height:1.5; }
     a { color:var(--blue); text-decoration:none; }
+    .gate { position:fixed; inset:0; background:rgba(15,23,42,.84); display:flex; align-items:center; justify-content:center; z-index:9999; padding:24px; }
+    .gate-card { width:min(460px,100%); background:#fff; border-radius:18px; padding:24px; box-shadow:0 25px 60px rgba(0,0,0,.28); }
+    .gate input { width:100%; padding:14px 16px; border:1px solid var(--line); border-radius:12px; font-size:16px; margin:14px 0 10px; }
+    .gate button, .download-btn { background:var(--blue); color:#fff; border:none; border-radius:12px; padding:12px 16px; font-size:15px; cursor:pointer; }
+    .download-btn { margin-top:10px; }
+    .error { color:#b91c1c; font-size:13px; min-height:18px; }
+    .locked { display:none; }
     @media (max-width: 960px) { .grid { grid-template-columns:1fr; } .bar-row { grid-template-columns:90px 1fr 120px; } }
   </style>
 </head>
 <body>
+  <div id='gate' class='gate'>
+    <div class='gate-card'>
+      <div class='kicker'>Chráněný report</div>
+      <h1 style='font-size:26px;margin-bottom:6px'>Zadej heslo</h1>
+      <div class='sub'>Report je chráněný heslem pro sdílení odkazu.</div>
+      <input id='passwordInput' type='password' placeholder='Heslo'>
+      <button id='unlockBtn'>Odemknout</button>
+      <div id='error' class='error'></div>
+    </div>
+  </div>
+  <div id='app' class='locked'>
   <div class='wrap'>
     <h1>Denní tržby, RETENCE vs zbytek světa</h1>
     <div class='sub'>Od 1. 6. 2026, po dnech, <strong>CZ a SK zvlášť</strong>, <strong>bez pokladen</strong>. RETENCE = zákazník měl v datech aspoň jednu dřívější objednávku před daným dnem. Zdroj je order fact z reporting-v2, refresh běží každou hodinu.</div>
 
     <div class='grid'>
-      <div class='card'><div class='kicker'>Poslední dostupný den</div><div class='big'>2026-06-08</div><div class='note'>Aktualizováno 2026-06-08T06:58:48.934577+02:00</div></div>
-      <div class='card'><div class='kicker'>Celkem tržby od 1. 6.</div><div class='big'>3 856 674,34 Kč</div><div class='note'>2 503 objednávek</div></div>
-      <div class='card'><div class='kicker'>CZ retence</div><div class='big'>3 264 172,41 Kč</div><div class='note'>CZ zbytek 128 373,39 Kč</div></div>
-      <div class='card'><div class='kicker'>SK retence</div><div class='big'>441 649,87 Kč</div><div class='note'>SK zbytek 22 478,67 Kč</div></div>
+      <div class='card'><div class='kicker'>Poslední dostupný den</div><div class='big'>2026-06-08</div><div class='note'>Aktualizováno 2026-06-08T13:29:15.721782+02:00</div></div>
+      <div class='card'><div class='kicker'>Celkem tržby od 1. 6.</div><div class='big'>4 000 158,10 Kč</div><div class='note'>2 589 objednávek</div></div>
+      <div class='card'><div class='kicker'>CZ retence</div><div class='big'>3 394 170,95 Kč</div><div class='note'>CZ zbytek 131 407,39 Kč</div></div>
+      <div class='card'><div class='kicker'>SK retence</div><div class='big'>452 101,09 Kč</div><div class='note'>SK zbytek 22 478,67 Kč</div></div>
     </div>
 
     <div class='card section'>
       <div class='kicker'>Vývoj po dnech</div>
       <div class='bars'>
-        <div class='bar-row'><div class='bar-label'>2026-06-01</div><div class='bar-track'><div class='bar-fill' style='width:81.12%'></div></div><div class='bar-value'>595 758,05 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-02</div><div class='bar-track'><div class='bar-fill' style='width:85.48%'></div></div><div class='bar-value'>627 797,40 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-03</div><div class='bar-track'><div class='bar-fill' style='width:84.64%'></div></div><div class='bar-value'>621 575,88 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-04</div><div class='bar-track'><div class='bar-fill' style='width:71.56%'></div></div><div class='bar-value'>525 514,84 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-05</div><div class='bar-track'><div class='bar-fill' style='width:60.09%'></div></div><div class='bar-value'>441 299,59 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-06</div><div class='bar-track'><div class='bar-fill' style='width:38.08%'></div></div><div class='bar-value'>279 645,01 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-07</div><div class='bar-track'><div class='bar-fill' style='width:100.00%'></div></div><div class='bar-value'>734 399,64 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-08</div><div class='bar-track'><div class='bar-fill' style='width:4.18%'></div></div><div class='bar-value'>30 683,93 Kč</div></div>
+        <div class='bar-row'><div class='bar-label'>2026-06-01</div><div class='bar-track'><div class='bar-fill' style='width:81.12%'></div></div><div class='bar-value'>595 758,05 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-02</div><div class='bar-track'><div class='bar-fill' style='width:84.45%'></div></div><div class='bar-value'>620 168,40 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-03</div><div class='bar-track'><div class='bar-fill' style='width:84.64%'></div></div><div class='bar-value'>621 575,88 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-04</div><div class='bar-track'><div class='bar-fill' style='width:71.56%'></div></div><div class='bar-value'>525 514,84 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-05</div><div class='bar-track'><div class='bar-fill' style='width:59.89%'></div></div><div class='bar-value'>439 798,59 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-06</div><div class='bar-track'><div class='bar-fill' style='width:38.08%'></div></div><div class='bar-value'>279 645,01 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-07</div><div class='bar-track'><div class='bar-fill' style='width:100.00%'></div></div><div class='bar-value'>734 399,64 Kč</div></div><div class='bar-row'><div class='bar-label'>2026-06-08</div><div class='bar-track'><div class='bar-fill' style='width:24.96%'></div></div><div class='bar-value'>183 297,69 Kč</div></div>
       </div>
     </div>
 
@@ -65,11 +83,46 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>2026-06-01</td><td>330</td><td>500 061,00 Kč</td><td>14</td><td>19 791,00 Kč</td><td>31</td><td>74 470,28 Kč</td><td>1</td><td>1 435,77 Kč</td><td>595 758,05 Kč</td></tr><tr><td>2026-06-02</td><td>344</td><td>539 084,00 Kč</td><td>12</td><td>17 371,00 Kč</td><td>42</td><td>71 342,40 Kč</td><td>0</td><td>0,00 Kč</td><td>627 797,40 Kč</td></tr><tr><td>2026-06-03</td><td>363</td><td>531 921,00 Kč</td><td>14</td><td>23 112,00 Kč</td><td>33</td><td>63 239,12 Kč</td><td>5</td><td>3 303,76 Kč</td><td>621 575,88 Kč</td></tr><tr><td>2026-06-04</td><td>259</td><td>428 910,71 Kč</td><td>17</td><td>23 798,68 Kč</td><td>32</td><td>69 126,73 Kč</td><td>3</td><td>3 678,72 Kč</td><td>525 514,84 Kč</td></tr><tr><td>2026-06-05</td><td>253</td><td>384 250,70 Kč</td><td>10</td><td>10 574,00 Kč</td><td>23</td><td>39 081,99 Kč</td><td>2</td><td>7 392,90 Kč</td><td>441 299,59 Kč</td></tr><tr><td>2026-06-06</td><td>154</td><td>234 419,00 Kč</td><td>7</td><td>9 126,00 Kč</td><td>19</td><td>32 091,32 Kč</td><td>3</td><td>4 008,69 Kč</td><td>279 645,01 Kč</td></tr><tr><td>2026-06-07</td><td>435</td><td>624 744,00 Kč</td><td>19</td><td>18 100,71 Kč</td><td>57</td><td>88 896,10 Kč</td><td>2</td><td>2 658,83 Kč</td><td>734 399,64 Kč</td></tr><tr><td>2026-06-08</td><td>16</td><td>20 782,00 Kč</td><td>1</td><td>6 500,00 Kč</td><td>2</td><td>3 401,93 Kč</td><td>0</td><td>0,00 Kč</td><td>30 683,93 Kč</td></tr>
+          <tr><td>2026-06-01</td><td>330</td><td>500 061,00 Kč</td><td>14</td><td>19 791,00 Kč</td><td>31</td><td>74 470,28 Kč</td><td>1</td><td>1 435,77 Kč</td><td>595 758,05 Kč</td></tr><tr><td>2026-06-02</td><td>342</td><td>531 455,00 Kč</td><td>12</td><td>17 371,00 Kč</td><td>42</td><td>71 342,40 Kč</td><td>0</td><td>0,00 Kč</td><td>620 168,40 Kč</td></tr><tr><td>2026-06-03</td><td>363</td><td>531 921,00 Kč</td><td>14</td><td>23 112,00 Kč</td><td>33</td><td>63 239,12 Kč</td><td>5</td><td>3 303,76 Kč</td><td>621 575,88 Kč</td></tr><tr><td>2026-06-04</td><td>259</td><td>428 910,71 Kč</td><td>17</td><td>23 798,68 Kč</td><td>32</td><td>69 126,73 Kč</td><td>3</td><td>3 678,72 Kč</td><td>525 514,84 Kč</td></tr><tr><td>2026-06-05</td><td>252</td><td>382 749,70 Kč</td><td>10</td><td>10 574,00 Kč</td><td>23</td><td>39 081,99 Kč</td><td>2</td><td>7 392,90 Kč</td><td>439 798,59 Kč</td></tr><tr><td>2026-06-06</td><td>154</td><td>234 419,00 Kč</td><td>7</td><td>9 126,00 Kč</td><td>19</td><td>32 091,32 Kč</td><td>3</td><td>4 008,69 Kč</td><td>279 645,01 Kč</td></tr><tr><td>2026-06-07</td><td>435</td><td>624 744,00 Kč</td><td>19</td><td>18 100,71 Kč</td><td>57</td><td>88 896,10 Kč</td><td>2</td><td>2 658,83 Kč</td><td>734 399,64 Kč</td></tr><tr><td>2026-06-08</td><td>98</td><td>159 910,54 Kč</td><td>3</td><td>9 534,00 Kč</td><td>7</td><td>13 853,15 Kč</td><td>0</td><td>0,00 Kč</td><td>183 297,69 Kč</td></tr>
         </tbody>
       </table>
-      <div class='note' style='margin-top:10px;'>CSV export: <a href='./denni_trzby_retence_vs_zbytek_2026-06-01_plus_cz_sk_bez_pokladen.csv'>denni_trzby_retence_vs_zbytek_2026-06-01_plus_cz_sk_bez_pokladen.csv</a></div>
+      <button class='download-btn' id='downloadCsvBtn'>Stáhnout CSV</button>
     </div>
   </div>
+  </div>
+<script>
+  const PASSWORD = 'Filipesmedia01';
+  const CSV_TEXT = "date,cz_retence_orders,cz_retence_revenue_with_vat,cz_zbytek_orders,cz_zbytek_revenue_with_vat,cz_total_orders,cz_total_revenue_with_vat,sk_retence_orders,sk_retence_revenue_with_vat,sk_zbytek_orders,sk_zbytek_revenue_with_vat,sk_total_orders,sk_total_revenue_with_vat,total_orders,total_revenue_with_vat\n2026-06-01,330,500061.0,14,19791.0,344,519852.0,31,74470.27999999998,1,1435.77,32,75906.04999999999,376,595758.05\n2026-06-02,342,531455.0,12,17371.0,354,548826.0,42,71342.40000000001,0,0.0,42,71342.40000000001,396,620168.4\n2026-06-03,363,531921.0,14,23112.0,377,555033.0,33,63239.12,5,3303.7599999999998,38,66542.88,415,621575.88\n2026-06-04,259,428910.71,17,23798.68,276,452709.39,32,69126.73,3,3678.7200000000003,35,72805.45,311,525514.84\n2026-06-05,252,382749.7,10,10574.0,262,393323.7,23,39081.99,2,7392.900000000001,25,46474.89,287,439798.59\n2026-06-06,154,234419.0,7,9126.0,161,243545.0,19,32091.32,3,4008.69,22,36100.01,183,279645.01\n2026-06-07,435,624744.0,19,18100.71,454,642844.71,57,88896.09999999999,2,2658.83,59,91554.93,513,734399.6399999999\n2026-06-08,98,159910.54,3,9534.0,101,169444.54,7,13853.150000000001,0,0.0,7,13853.150000000001,108,183297.69\n";
+  const gate = document.getElementById('gate');
+  const app = document.getElementById('app');
+  const input = document.getElementById('passwordInput');
+  const error = document.getElementById('error');
+  function unlock() {
+    if (input.value === PASSWORD) {
+      sessionStorage.setItem('retence_report_unlocked', '1');
+      gate.style.display = 'none';
+      app.classList.remove('locked');
+    } else {
+      error.textContent = 'Nesprávné heslo';
+    }
+  }
+  if (sessionStorage.getItem('retence_report_unlocked') === '1') {
+    gate.style.display = 'none';
+    app.classList.remove('locked');
+  }
+  document.getElementById('unlockBtn').addEventListener('click', unlock);
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') unlock(); });
+  document.getElementById('downloadCsvBtn').addEventListener('click', () => {
+    const blob = new Blob([CSV_TEXT], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'denni_trzby_retence_vs_zbytek_2026-06-01_plus_cz_sk_bez_pokladen.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+</script>
 </body>
 </html>
