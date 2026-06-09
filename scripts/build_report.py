@@ -7,14 +7,17 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
-START_DATE = '2026-06-01'
+START_DATE = '2026-05-01'
 WORKSPACE = Path('/Users/rudolfkonfal/.openclaw/workspace')
 REPORTING_ROOT = WORKSPACE / 'reporting-v2'
 ORDER_FACT_PATH = REPORTING_ROOT / 'data' / 'current' / 'order_fact_ytd_window.json'
-OUTPUT_DIR = Path('/Users/rudolfkonfal/Desktop/tiande-retence-vs-zbytek-report/site')
-CSV_PATH = OUTPUT_DIR / 'denni_trzby_retence_vs_zbytek_2026-06-01_plus_cz_sk_bez_pokladen.csv'
-HTML_PATH = OUTPUT_DIR / 'index.html'
-GENERATED_JSON = OUTPUT_DIR / 'latest.json'
+REPO_ROOT = Path(__file__).resolve().parents[1]
+DOCS_DIR = REPO_ROOT / 'docs'
+SITE_DIR = REPO_ROOT / 'site'
+CSV_FILENAME = 'denni_trzby_retence_vs_zbytek_2026-05-01_plus_cz_sk_bez_pokladen.csv'
+HTML_PATH = DOCS_DIR / 'index.html'
+CSV_PATH = DOCS_DIR / CSV_FILENAME
+GENERATED_JSON = DOCS_DIR / 'latest.json'
 REFRESH_SCRIPT = REPORTING_ROOT / 'scripts' / 'refresh_data.py'
 
 
@@ -190,11 +193,11 @@ def write_html(rows, summary):
 <body>
   <div class='wrap'>
     <h1>Denní tržby, RETENCE vs zbytek světa</h1>
-    <div class='sub'>Od 1. 6. 2026, po dnech, <strong>CZ a SK zvlášť</strong>, <strong>bez pokladen</strong>. RETENCE = zákazník měl v datech aspoň jednu dřívější objednávku před daným dnem. Zdroj je order fact z reporting-v2, refresh běží každou hodinu.</div>
+    <div class='sub'>Od 1. 5. 2026, po dnech, <strong>CZ a SK zvlášť</strong>, <strong>bez pokladen</strong>. RETENCE = zákazník měl v datech aspoň jednu dřívější objednávku před daným dnem. Zdroj je order fact z reporting-v2, refresh běží každou hodinu.</div>
 
     <div class='grid'>
       <div class='card'><div class='kicker'>Poslední dostupný den</div><div class='big'>{latest.get('date','-')}</div><div class='note'>Aktualizováno {summary.get('generatedAt','-')}</div></div>
-      <div class='card'><div class='kicker'>Celkem tržby od 1. 6.</div><div class='big'>{fmt_money(totals.get('total_revenue_with_vat', 0.0))} Kč</div><div class='note'>{fmt_int(totals.get('total_orders', 0))} objednávek</div></div>
+      <div class='card'><div class='kicker'>Celkem tržby od 1. 5.</div><div class='big'>{fmt_money(totals.get('total_revenue_with_vat', 0.0))} Kč</div><div class='note'>{fmt_int(totals.get('total_orders', 0))} objednávek</div></div>
       <div class='card'><div class='kicker'>CZ retence</div><div class='big'>{fmt_money(totals.get('cz_retence_revenue_with_vat', 0.0))} Kč</div><div class='note'>CZ zbytek {fmt_money(totals.get('cz_zbytek_revenue_with_vat', 0.0))} Kč</div></div>
       <div class='card'><div class='kicker'>SK retence</div><div class='big'>{fmt_money(totals.get('sk_retence_revenue_with_vat', 0.0))} Kč</div><div class='note'>SK zbytek {fmt_money(totals.get('sk_zbytek_revenue_with_vat', 0.0))} Kč</div></div>
     </div>
@@ -236,8 +239,15 @@ def write_html(rows, summary):
     HTML_PATH.write_text(html, encoding='utf-8')
 
 
+def sync_site_copy():
+    SITE_DIR.mkdir(parents=True, exist_ok=True)
+    for name in ['index.html', CSV_FILENAME, 'latest.json']:
+        (SITE_DIR / name).write_text((DOCS_DIR / name).read_text(encoding='utf-8'), encoding='utf-8') if name.endswith(('.html', '.json', '.csv')) else None
+
+
 def main():
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
+    SITE_DIR.mkdir(parents=True, exist_ok=True)
     if os.environ.get('SKIP_REFRESH') != '1':
         refresh_source_data()
     payload, orders = load_orders()
@@ -246,6 +256,7 @@ def main():
     summary = build_summary(rows, payload.get('generatedAt'))
     GENERATED_JSON.write_text(json.dumps({'summary': summary, 'rows': rows}, ensure_ascii=False, indent=2), encoding='utf-8')
     write_html(rows, summary)
+    sync_site_copy()
     print(f'OK: {HTML_PATH}')
 
 
