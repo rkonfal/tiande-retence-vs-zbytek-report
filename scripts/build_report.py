@@ -15,8 +15,12 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = REPO_ROOT / 'docs'
 SITE_DIR = REPO_ROOT / 'site'
 CSV_FILENAME = 'denni_trzby_retence_vs_zbytek_2026-05-01_plus_cz_sk_bez_pokladen.csv'
+STABLE_CSV_FILENAME = 'denni_trzby_retence_vs_zbytek_latest.csv'
+LEGACY_CSV_FILENAME = 'denni_trzby_retence_vs_zbytek_2025-01-01_plus_cz_sk_bez_pokladen.csv'
 HTML_PATH = DOCS_DIR / 'index.html'
 CSV_PATH = DOCS_DIR / CSV_FILENAME
+STABLE_CSV_PATH = DOCS_DIR / STABLE_CSV_FILENAME
+LEGACY_CSV_PATH = DOCS_DIR / LEGACY_CSV_FILENAME
 GENERATED_JSON = DOCS_DIR / 'latest.json'
 REFRESH_SCRIPT = REPORTING_ROOT / 'scripts' / 'refresh_data.py'
 
@@ -103,11 +107,12 @@ def write_csv(rows):
         'sk_total_orders', 'sk_total_revenue_with_vat',
         'total_orders', 'total_revenue_with_vat',
     ]
-    with CSV_PATH.open('w', newline='', encoding='utf-8') as fh:
-        writer = csv.DictWriter(fh, fieldnames=fieldnames)
-        writer.writeheader()
-        for row in rows:
-            writer.writerow(row)
+    for path in [CSV_PATH, STABLE_CSV_PATH, LEGACY_CSV_PATH]:
+        with path.open('w', newline='', encoding='utf-8') as fh:
+            writer = csv.DictWriter(fh, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in rows:
+                writer.writerow(row)
 
 
 def build_summary(rows, generated_at):
@@ -211,6 +216,7 @@ def write_html(rows, summary):
 
     <div class='card section'>
       <div class='kicker'>Denní rozpad</div>
+      <div class='note' style='margin-bottom:14px;'>Stabilní CSV export: <a href='./{STABLE_CSV_FILENAME}'>{STABLE_CSV_FILENAME}</a></div>
       <table>
         <thead>
           <tr>
@@ -230,7 +236,8 @@ def write_html(rows, summary):
           {''.join(table_rows)}
         </tbody>
       </table>
-      <div class='note' style='margin-top:10px;'>CSV export: <a href='./{CSV_PATH.name}'>{CSV_PATH.name}</a></div>
+      <div class='note' style='margin-top:10px;'>Verze od 1. 5. 2026: <a href='./{CSV_PATH.name}'>{CSV_PATH.name}</a></div>
+      <div class='note' style='margin-top:6px;'>Zpětně kompatibilní link: <a href='./{LEGACY_CSV_FILENAME}'>{LEGACY_CSV_FILENAME}</a></div>
     </div>
   </div>
 </body>
@@ -241,8 +248,21 @@ def write_html(rows, summary):
 
 def sync_site_copy():
     SITE_DIR.mkdir(parents=True, exist_ok=True)
-    for name in ['index.html', CSV_FILENAME, 'latest.json']:
+    for name in ['index.html', CSV_FILENAME, STABLE_CSV_FILENAME, LEGACY_CSV_FILENAME, 'latest.json']:
         (SITE_DIR / name).write_text((DOCS_DIR / name).read_text(encoding='utf-8'), encoding='utf-8') if name.endswith(('.html', '.json', '.csv')) else None
+
+
+def publish_if_needed():
+    if os.environ.get('SKIP_GIT_PUSH') == '1':
+        return
+    subprocess.run(['git', 'add', 'docs', 'site'], cwd=str(REPO_ROOT), check=True)
+    diff = subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=str(REPO_ROOT))
+    if diff.returncode == 0:
+        print('No repo changes to publish')
+        return
+    subprocess.run(['git', 'commit', '-m', 'chore: refresh retence vs zbytek report'], cwd=str(REPO_ROOT), check=True)
+    subprocess.run(['git', 'pull', '--rebase', 'origin', 'main'], cwd=str(REPO_ROOT), check=True)
+    subprocess.run(['git', 'push', 'origin', 'HEAD:main'], cwd=str(REPO_ROOT), check=True)
 
 
 def main():
@@ -257,6 +277,7 @@ def main():
     GENERATED_JSON.write_text(json.dumps({'summary': summary, 'rows': rows}, ensure_ascii=False, indent=2), encoding='utf-8')
     write_html(rows, summary)
     sync_site_copy()
+    publish_if_needed()
     print(f'OK: {HTML_PATH}')
 
 

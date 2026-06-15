@@ -14,6 +14,7 @@ Samostatný report mimo strukturu hlavního reportingu.
 - generuje:
   - `site/index.html`
   - `site/denni_trzby_retence_vs_zbytek_2026-05-01_plus_cz_sk_bez_pokladen.csv`
+  - `site/denni_trzby_retence_vs_zbytek_latest.csv`
   - `site/latest.json`
 
 ## Ruční refresh
@@ -25,3 +26,5 @@ python3 scripts/build_report.py
 ## Automatický refresh
 
 Je nastavený přes launchd každou hodinu.
+
+Důležité: build skript po změně automaticky commitne a pushne `docs/` a `site/`, takže se GitHub Pages opravdu aktualizuje i bez ručního pushnutí.
