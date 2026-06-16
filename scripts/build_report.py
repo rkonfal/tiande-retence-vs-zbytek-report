@@ -92,6 +92,7 @@ def build_daily_rows(orders):
         row['sk_total_revenue_with_vat'] = row['sk_retence_revenue_with_vat'] + row['sk_zbytek_revenue_with_vat']
         row['total_orders'] = row['cz_total_orders'] + row['sk_total_orders']
         row['total_revenue_with_vat'] = row['cz_total_revenue_with_vat'] + row['sk_total_revenue_with_vat']
+        row['total_revenue_without_stores_with_vat'] = row['total_revenue_with_vat']
         rows.append(row)
     return rows
 
@@ -106,6 +107,7 @@ def write_csv(rows):
         'sk_zbytek_orders', 'sk_zbytek_revenue_with_vat',
         'sk_total_orders', 'sk_total_revenue_with_vat',
         'total_orders', 'total_revenue_with_vat',
+        'total_revenue_without_stores_with_vat',
     ]
     for path in [CSV_PATH, STABLE_CSV_PATH, LEGACY_CSV_PATH]:
         with path.open('w', newline='', encoding='utf-8') as fh:
@@ -160,6 +162,7 @@ def write_html(rows, summary):
             f"<td>{fmt_int(row['sk_zbytek_orders'])}</td>"
             f"<td>{fmt_money(row['sk_zbytek_revenue_with_vat'])} Kč</td>"
             f"<td>{fmt_money(row['total_revenue_with_vat'])} Kč</td>"
+            f"<td>{fmt_money(row['total_revenue_without_stores_with_vat'])} Kč</td>"
             '</tr>'
         )
 
@@ -198,7 +201,7 @@ def write_html(rows, summary):
 <body>
   <div class='wrap'>
     <h1>Denní tržby, RETENCE vs zbytek světa</h1>
-    <div class='sub'>Od 1. 5. 2026, po dnech, <strong>CZ a SK zvlášť</strong>, <strong>bez pokladen</strong>. RETENCE = zákazník měl v datech aspoň jednu dřívější objednávku před daným dnem. Zdroj je order fact z reporting-v2, refresh běží každou hodinu.</div>
+    <div class='sub'>Od 1. 5. 2026, po dnech, <strong>CZ a SK zvlášť</strong>, <strong>bez pokladen</strong>. RETENCE = zákazník měl v datech aspoň jednu dřívější objednávku před daným dnem. Zdroj je order fact z reporting-v2, refresh běží každou hodinu. Sloupec <strong>Obrat total bez prodejen</strong> je explicitní total bez zdroje Pokladna.</div>
 
     <div class='grid'>
       <div class='card'><div class='kicker'>Poslední dostupný den</div><div class='big'>{latest.get('date','-')}</div><div class='note'>Aktualizováno {summary.get('generatedAt','-')}</div></div>
@@ -230,6 +233,7 @@ def write_html(rows, summary):
             <th>SK zbytek obj.</th>
             <th>SK zbytek tržby</th>
             <th>Celkem</th>
+            <th>Obrat total bez prodejen</th>
           </tr>
         </thead>
         <tbody>
