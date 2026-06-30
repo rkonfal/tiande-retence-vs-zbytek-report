@@ -3,6 +3,7 @@ import csv
 import json
 import os
 import subprocess
+import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -34,7 +35,7 @@ def fmt_int(value: int) -> str:
 
 
 def refresh_source_data():
-    subprocess.run(['python3', str(REFRESH_SCRIPT)], cwd=str(REPORTING_ROOT), check=True)
+    subprocess.run([sys.executable, str(REFRESH_SCRIPT)], cwd=str(REPORTING_ROOT), check=True)
 
 
 def load_orders():
