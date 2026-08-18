@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-08-18T12:00:05.876704+02:00",
+    "generatedAt": "2026-08-18T14:00:02.840007+02:00",
     "days": 110,
     "latestDay": {
       "date": "2026-08-18",
-      "cz_retence_orders": 109,
-      "cz_retence_revenue_with_vat": 201321.0,
-      "cz_zbytek_orders": 3,
-      "cz_zbytek_revenue_with_vat": 2076.0,
-      "sk_retence_orders": 11,
-      "sk_retence_revenue_with_vat": 26176.460000000003,
+      "cz_retence_orders": 133,
+      "cz_retence_revenue_with_vat": 241322.0,
+      "cz_zbytek_orders": 5,
+      "cz_zbytek_revenue_with_vat": 4948.0,
+      "sk_retence_orders": 16,
+      "sk_retence_revenue_with_vat": 34232.01,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 112,
-      "cz_total_revenue_with_vat": 203397.0,
-      "sk_total_orders": 11,
-      "sk_total_revenue_with_vat": 26176.460000000003,
-      "total_orders": 123,
-      "total_revenue_with_vat": 229573.46,
-      "total_revenue_without_stores_with_vat": 229573.46
+      "cz_total_orders": 138,
+      "cz_total_revenue_with_vat": 246270.0,
+      "sk_total_orders": 16,
+      "sk_total_revenue_with_vat": 34232.01,
+      "total_orders": 154,
+      "total_revenue_with_vat": 280502.01,
+      "total_revenue_without_stores_with_vat": 280502.01
     },
     "totals": {
-      "cz_retence_revenue_with_vat": 47611167.39,
-      "cz_zbytek_revenue_with_vat": 1442583.28,
-      "sk_retence_revenue_with_vat": 6150726.36,
+      "cz_retence_revenue_with_vat": 47650690.39,
+      "cz_zbytek_revenue_with_vat": 1445455.28,
+      "sk_retence_revenue_with_vat": 6158781.91,
       "sk_zbytek_revenue_with_vat": 195266.85,
-      "total_revenue_with_vat": 55399743.88,
-      "total_orders": 33371
+      "total_revenue_with_vat": 55450194.43,
+      "total_orders": 33401
     }
   },
   "rows": [
@@ -1724,21 +1724,21 @@
     },
     {
       "date": "2026-08-03",
-      "cz_retence_orders": 337,
-      "cz_retence_revenue_with_vat": 520939.0,
+      "cz_retence_orders": 336,
+      "cz_retence_revenue_with_vat": 520461.0,
       "cz_zbytek_orders": 11,
       "cz_zbytek_revenue_with_vat": 10449.0,
       "sk_retence_orders": 35,
       "sk_retence_revenue_with_vat": 63025.08000000001,
       "sk_zbytek_orders": 4,
       "sk_zbytek_revenue_with_vat": 4226.84,
-      "cz_total_orders": 348,
-      "cz_total_revenue_with_vat": 531388.0,
+      "cz_total_orders": 347,
+      "cz_total_revenue_with_vat": 530910.0,
       "sk_total_orders": 39,
       "sk_total_revenue_with_vat": 67251.92000000001,
-      "total_orders": 387,
-      "total_revenue_with_vat": 598639.92,
-      "total_revenue_without_stores_with_vat": 598639.92
+      "total_orders": 386,
+      "total_revenue_with_vat": 598161.92,
+      "total_revenue_without_stores_with_vat": 598161.92
     },
     {
       "date": "2026-08-04",
@@ -1994,21 +1994,21 @@
     },
     {
       "date": "2026-08-18",
-      "cz_retence_orders": 109,
-      "cz_retence_revenue_with_vat": 201321.0,
-      "cz_zbytek_orders": 3,
-      "cz_zbytek_revenue_with_vat": 2076.0,
-      "sk_retence_orders": 11,
-      "sk_retence_revenue_with_vat": 26176.460000000003,
+      "cz_retence_orders": 133,
+      "cz_retence_revenue_with_vat": 241322.0,
+      "cz_zbytek_orders": 5,
+      "cz_zbytek_revenue_with_vat": 4948.0,
+      "sk_retence_orders": 16,
+      "sk_retence_revenue_with_vat": 34232.01,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 112,
-      "cz_total_revenue_with_vat": 203397.0,
-      "sk_total_orders": 11,
-      "sk_total_revenue_with_vat": 26176.460000000003,
-      "total_orders": 123,
-      "total_revenue_with_vat": 229573.46,
-      "total_revenue_without_stores_with_vat": 229573.46
+      "cz_total_orders": 138,
+      "cz_total_revenue_with_vat": 246270.0,
+      "sk_total_orders": 16,
+      "sk_total_revenue_with_vat": 34232.01,
+      "total_orders": 154,
+      "total_revenue_with_vat": 280502.01,
+      "total_revenue_without_stores_with_vat": 280502.01
     }
   ]
 }
