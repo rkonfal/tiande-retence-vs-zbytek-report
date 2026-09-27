@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-09-27T12:00:02.486689+02:00",
+    "generatedAt": "2026-09-27T14:00:06.510420+02:00",
     "days": 150,
     "latestDay": {
       "date": "2026-09-27",
-      "cz_retence_orders": 52,
-      "cz_retence_revenue_with_vat": 88395.0,
-      "cz_zbytek_orders": 2,
-      "cz_zbytek_revenue_with_vat": 1017.0,
-      "sk_retence_orders": 1,
-      "sk_retence_revenue_with_vat": 1434.4,
+      "cz_retence_orders": 71,
+      "cz_retence_revenue_with_vat": 116344.0,
+      "cz_zbytek_orders": 3,
+      "cz_zbytek_revenue_with_vat": 1305.0,
+      "sk_retence_orders": 2,
+      "sk_retence_revenue_with_vat": 6589.790000000001,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 54,
-      "cz_total_revenue_with_vat": 89412.0,
-      "sk_total_orders": 1,
-      "sk_total_revenue_with_vat": 1434.4,
-      "total_orders": 55,
-      "total_revenue_with_vat": 90846.4,
-      "total_revenue_without_stores_with_vat": 90846.4
+      "cz_total_orders": 74,
+      "cz_total_revenue_with_vat": 117649.0,
+      "sk_total_orders": 2,
+      "sk_total_revenue_with_vat": 6589.790000000001,
+      "total_orders": 76,
+      "total_revenue_with_vat": 124238.79000000001,
+      "total_revenue_without_stores_with_vat": 124238.79000000001
     },
     "totals": {
-      "cz_retence_revenue_with_vat": 64531486.43,
-      "cz_zbytek_revenue_with_vat": 2051851.2,
-      "sk_retence_revenue_with_vat": 8171082.98,
+      "cz_retence_revenue_with_vat": 64558640.43,
+      "cz_zbytek_revenue_with_vat": 2052139.2,
+      "sk_retence_revenue_with_vat": 8176238.37,
       "sk_zbytek_revenue_with_vat": 282476.27,
-      "total_revenue_with_vat": 75036896.88,
-      "total_orders": 44946
+      "total_revenue_with_vat": 75069494.27,
+      "total_orders": 44966
     }
   },
   "rows": [
@@ -2534,21 +2534,21 @@
     },
     {
       "date": "2026-09-17",
-      "cz_retence_orders": 246,
-      "cz_retence_revenue_with_vat": 451178.0,
+      "cz_retence_orders": 245,
+      "cz_retence_revenue_with_vat": 450383.0,
       "cz_zbytek_orders": 24,
       "cz_zbytek_revenue_with_vat": 45602.0,
       "sk_retence_orders": 21,
       "sk_retence_revenue_with_vat": 56053.479999999996,
       "sk_zbytek_orders": 2,
       "sk_zbytek_revenue_with_vat": 3595.5499999999997,
-      "cz_total_orders": 270,
-      "cz_total_revenue_with_vat": 496780.0,
+      "cz_total_orders": 269,
+      "cz_total_revenue_with_vat": 495985.0,
       "sk_total_orders": 23,
       "sk_total_revenue_with_vat": 59649.03,
-      "total_orders": 293,
-      "total_revenue_with_vat": 556429.03,
-      "total_revenue_without_stores_with_vat": 556429.03
+      "total_orders": 292,
+      "total_revenue_with_vat": 555634.03,
+      "total_revenue_without_stores_with_vat": 555634.03
     },
     {
       "date": "2026-09-18",
@@ -2714,21 +2714,21 @@
     },
     {
       "date": "2026-09-27",
-      "cz_retence_orders": 52,
-      "cz_retence_revenue_with_vat": 88395.0,
-      "cz_zbytek_orders": 2,
-      "cz_zbytek_revenue_with_vat": 1017.0,
-      "sk_retence_orders": 1,
-      "sk_retence_revenue_with_vat": 1434.4,
+      "cz_retence_orders": 71,
+      "cz_retence_revenue_with_vat": 116344.0,
+      "cz_zbytek_orders": 3,
+      "cz_zbytek_revenue_with_vat": 1305.0,
+      "sk_retence_orders": 2,
+      "sk_retence_revenue_with_vat": 6589.790000000001,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 54,
-      "cz_total_revenue_with_vat": 89412.0,
-      "sk_total_orders": 1,
-      "sk_total_revenue_with_vat": 1434.4,
-      "total_orders": 55,
-      "total_revenue_with_vat": 90846.4,
-      "total_revenue_without_stores_with_vat": 90846.4
+      "cz_total_orders": 74,
+      "cz_total_revenue_with_vat": 117649.0,
+      "sk_total_orders": 2,
+      "sk_total_revenue_with_vat": 6589.790000000001,
+      "total_orders": 76,
+      "total_revenue_with_vat": 124238.79000000001,
+      "total_revenue_without_stores_with_vat": 124238.79000000001
     }
   ]
 }
