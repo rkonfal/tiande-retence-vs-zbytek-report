@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-10-15T06:00:05.128780+02:00",
+    "generatedAt": "2026-10-15T10:00:07.263853+02:00",
     "days": 168,
     "latestDay": {
       "date": "2026-10-15",
-      "cz_retence_orders": 7,
-      "cz_retence_revenue_with_vat": 13202.0,
-      "cz_zbytek_orders": 0,
-      "cz_zbytek_revenue_with_vat": 0.0,
-      "sk_retence_orders": 1,
-      "sk_retence_revenue_with_vat": 2301.59,
+      "cz_retence_orders": 58,
+      "cz_retence_revenue_with_vat": 91159.0,
+      "cz_zbytek_orders": 3,
+      "cz_zbytek_revenue_with_vat": 3515.0,
+      "sk_retence_orders": 5,
+      "sk_retence_revenue_with_vat": 11490.220000000001,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 7,
-      "cz_total_revenue_with_vat": 13202.0,
-      "sk_total_orders": 1,
-      "sk_total_revenue_with_vat": 2301.59,
-      "total_orders": 8,
-      "total_revenue_with_vat": 15503.59,
-      "total_revenue_without_stores_with_vat": 15503.59
+      "cz_total_orders": 61,
+      "cz_total_revenue_with_vat": 94674.0,
+      "sk_total_orders": 5,
+      "sk_total_revenue_with_vat": 11490.220000000001,
+      "total_orders": 66,
+      "total_revenue_with_vat": 106164.22,
+      "total_revenue_without_stores_with_vat": 106164.22
     },
     "totals": {
-      "cz_retence_revenue_with_vat": 73158673.01,
-      "cz_zbytek_revenue_with_vat": 2552518.2,
-      "sk_retence_revenue_with_vat": 9268592.67,
+      "cz_retence_revenue_with_vat": 73236630.01,
+      "cz_zbytek_revenue_with_vat": 2556033.2,
+      "sk_retence_revenue_with_vat": 9276784.58,
       "sk_zbytek_revenue_with_vat": 358765.44,
-      "total_revenue_with_vat": 85338549.32,
-      "total_orders": 51182
+      "total_revenue_with_vat": 85428213.23,
+      "total_orders": 51239
     }
   },
   "rows": [
@@ -2790,17 +2790,17 @@
       "cz_retence_revenue_with_vat": 364683.75,
       "cz_zbytek_orders": 7,
       "cz_zbytek_revenue_with_vat": 9749.0,
-      "sk_retence_orders": 31,
-      "sk_retence_revenue_with_vat": 58805.01,
+      "sk_retence_orders": 30,
+      "sk_retence_revenue_with_vat": 57808.29000000001,
       "sk_zbytek_orders": 3,
       "sk_zbytek_revenue_with_vat": 3468.75,
       "cz_total_orders": 242,
       "cz_total_revenue_with_vat": 374432.75,
-      "sk_total_orders": 34,
-      "sk_total_revenue_with_vat": 62273.76,
-      "total_orders": 276,
-      "total_revenue_with_vat": 436706.51,
-      "total_revenue_without_stores_with_vat": 436706.51
+      "sk_total_orders": 33,
+      "sk_total_revenue_with_vat": 61277.04000000001,
+      "total_orders": 275,
+      "total_revenue_with_vat": 435709.79000000004,
+      "total_revenue_without_stores_with_vat": 435709.79000000004
     },
     {
       "date": "2026-10-02",
@@ -3038,21 +3038,21 @@
     },
     {
       "date": "2026-10-15",
-      "cz_retence_orders": 7,
-      "cz_retence_revenue_with_vat": 13202.0,
-      "cz_zbytek_orders": 0,
-      "cz_zbytek_revenue_with_vat": 0.0,
-      "sk_retence_orders": 1,
-      "sk_retence_revenue_with_vat": 2301.59,
+      "cz_retence_orders": 58,
+      "cz_retence_revenue_with_vat": 91159.0,
+      "cz_zbytek_orders": 3,
+      "cz_zbytek_revenue_with_vat": 3515.0,
+      "sk_retence_orders": 5,
+      "sk_retence_revenue_with_vat": 11490.220000000001,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 7,
-      "cz_total_revenue_with_vat": 13202.0,
-      "sk_total_orders": 1,
-      "sk_total_revenue_with_vat": 2301.59,
-      "total_orders": 8,
-      "total_revenue_with_vat": 15503.59,
-      "total_revenue_without_stores_with_vat": 15503.59
+      "cz_total_orders": 61,
+      "cz_total_revenue_with_vat": 94674.0,
+      "sk_total_orders": 5,
+      "sk_total_revenue_with_vat": 11490.220000000001,
+      "total_orders": 66,
+      "total_revenue_with_vat": 106164.22,
+      "total_revenue_without_stores_with_vat": 106164.22
     }
   ]
 }
