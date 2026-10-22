@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-10-22T04:00:02.766590+02:00",
+    "generatedAt": "2026-10-22T06:00:06.673719+02:00",
     "days": 175,
     "latestDay": {
       "date": "2026-10-22",
-      "cz_retence_orders": 1,
-      "cz_retence_revenue_with_vat": 868.0,
+      "cz_retence_orders": 4,
+      "cz_retence_revenue_with_vat": 5552.0,
       "cz_zbytek_orders": 0,
       "cz_zbytek_revenue_with_vat": 0.0,
       "sk_retence_orders": 0,
       "sk_retence_revenue_with_vat": 0.0,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 1,
-      "cz_total_revenue_with_vat": 868.0,
+      "cz_total_orders": 4,
+      "cz_total_revenue_with_vat": 5552.0,
       "sk_total_orders": 0,
       "sk_total_revenue_with_vat": 0.0,
-      "total_orders": 1,
-      "total_revenue_with_vat": 868.0,
-      "total_revenue_without_stores_with_vat": 868.0
+      "total_orders": 4,
+      "total_revenue_with_vat": 5552.0,
+      "total_revenue_without_stores_with_vat": 5552.0
     },
     "totals": {
-      "cz_retence_revenue_with_vat": 75597681.77,
+      "cz_retence_revenue_with_vat": 75602365.77,
       "cz_zbytek_revenue_with_vat": 2656661.2,
       "sk_retence_revenue_with_vat": 9538365.26,
       "sk_zbytek_revenue_with_vat": 365186.16,
-      "total_revenue_with_vat": 88157894.39,
-      "total_orders": 52873
+      "total_revenue_with_vat": 88162578.39,
+      "total_orders": 52876
     }
   },
   "rows": [
@@ -3164,21 +3164,21 @@
     },
     {
       "date": "2026-10-22",
-      "cz_retence_orders": 1,
-      "cz_retence_revenue_with_vat": 868.0,
+      "cz_retence_orders": 4,
+      "cz_retence_revenue_with_vat": 5552.0,
       "cz_zbytek_orders": 0,
       "cz_zbytek_revenue_with_vat": 0.0,
       "sk_retence_orders": 0,
       "sk_retence_revenue_with_vat": 0.0,
       "sk_zbytek_orders": 0,
       "sk_zbytek_revenue_with_vat": 0.0,
-      "cz_total_orders": 1,
-      "cz_total_revenue_with_vat": 868.0,
+      "cz_total_orders": 4,
+      "cz_total_revenue_with_vat": 5552.0,
       "sk_total_orders": 0,
       "sk_total_revenue_with_vat": 0.0,
-      "total_orders": 1,
-      "total_revenue_with_vat": 868.0,
-      "total_revenue_without_stores_with_vat": 868.0
+      "total_orders": 4,
+      "total_revenue_with_vat": 5552.0,
+      "total_revenue_without_stores_with_vat": 5552.0
     }
   ]
 }
